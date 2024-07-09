@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: UNLICENSED
-pragma solidity ^0.8.20;
+pragma solidity ^0.8.13;
 
 import { ERC1155 } from "../lib/solmate/src/tokens/ERC1155.sol";
 import { Owned } from "../lib/solmate/src/auth/Owned.sol";

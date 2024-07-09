@@ -1,12 +1,18 @@
-// SPDX-License-Identifier: UNLICENSED
+//  SPDX-License-Identifier: MIT
 pragma solidity ^0.8.13;
 
-import {Script, console2} from "forge-std/Script.sol";
+ import "forge-std/Script.sol";
 
-contract CounterScript is Script {
-    function setUp() public {}
+ import { TokenERC1155 } from "../src/TokenErc1155.sol";
 
-    function run() public {
-        vm.broadcast();
-    }
-}
+ contract ContractScript is Script {
+     function run() external {
+        uint256 deployerPrivateKey = vm.envUint("PRIVATE_KEY");
+        
+        vm.startBroadcast(deployerPrivateKey);
+
+        TokenERC1155 token = new TokenERC1155();
+
+        vm.stopBroadcast();
+     }
+ }
