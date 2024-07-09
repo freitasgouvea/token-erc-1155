@@ -5,10 +5,7 @@ import { ERC1155 } from "../lib/solmate/src/tokens/ERC1155.sol";
 import { Owned } from "../lib/solmate/src/auth/Owned.sol";
 
 contract TokenERC1155 is ERC1155, Owned {
-    constructor(
-        string memory tokenName,
-        string memory tokenSymbol
-    ) ERC1155(tokenName, tokenSymbol) Owned(msg.sender) {}
+    constructor() ERC1155() Owned(msg.sender) {}
 
     function mint(
         address to,
@@ -43,4 +40,8 @@ contract TokenERC1155 is ERC1155, Owned {
     ) public virtual {
         _batchBurn(from, ids, amounts);
     }
+
+    function uri(
+        uint256 id
+    ) public view virtual override returns (string memory) {}
 }
